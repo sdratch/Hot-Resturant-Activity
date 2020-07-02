@@ -1,16 +1,3 @@
-//creae front end visulas
-// 3 different htmls home, reservation form, and reservation views.
-//have links to the other
-//create basic server using express
-//require express and set it to app
-//assign a port
-//put in code for data parsing
-//listen for the port and print app is listening on PORT (port)
-//Create a few array variables to hold the data.
-// create
-//use post routes to get reservation data
-//use get routes to post the data (JSON)
-//use get routes to display the html pages
 
 const express = require("express");
 const path = require("path");
@@ -21,27 +8,44 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const table = [{
+const table = [
+  {
     name: "bob",
-    phone:23141234,
-    email:"bob@gmail.com",
-    id:12
-}]
-const wait= [{
+    phone: 23141234,
+    email: "bob@gmail.com",
+    id: 12,
+  },
+];
+const wait = [
+  {
     name: "bob324",
-    phone:23141234,
-    email:"bob@gmail.com",
-    id:12
-}]
+    phone: 23141234,
+    email: "bob@gmail.com",
+    id: 12,
+  },
+];
+// Routes
+// =================================================
 
-app.get("/api/table", (req,res)=>{
-    return res.json(table)
-})
-app.get("/api/wait", (req,res)=>{
-    return res.json(wait)
-})
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
-app.listen(PORT, () =>{
-    console.log("App listening on PORT " + PORT);
-  });
-  
+app.get("/table", function (req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+app.get("/reserve", function (req, res) {
+  res.sendFile(path.join(__dirname, "reserve.html"));
+});
+
+app.get("/api/table", (req, res) => {
+  return res.json(table);
+});
+app.get("/api/wait", (req, res) => {
+  return res.json(wait);
+});
+
+app.listen(PORT, () => {
+  console.log("App listening on PORT " + PORT);
+});
