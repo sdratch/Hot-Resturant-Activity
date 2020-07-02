@@ -21,7 +21,7 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-app.listen(PORT, () => {
-  console.log("This app is listening on PORT: " + PORT);
-});
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+  
