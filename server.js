@@ -45,6 +45,7 @@ app.get("/api/table", (req, res) => {
 app.get("/api/wait", (req, res) => {
   return res.json(wait);
 });
+//create new person in table table
 
 app.listen(PORT, () => {
   console.log("App listening on PORT " + PORT);
