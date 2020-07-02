@@ -21,6 +21,26 @@ var PORT = 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const table = [{
+    name: "bob",
+    phone:23141234,
+    email:"bob@gmail.com",
+    id:12
+}]
+const wait= [{
+    name: "bob324",
+    phone:23141234,
+    email:"bob@gmail.com",
+    id:12
+}]
+
+app.get("/api/table", (req,res)=>{
+    return res.json(table)
+})
+app.get("/api/wait", (req,res)=>{
+    return res.json(wait)
+})
+
 app.listen(PORT, () =>{
     console.log("App listening on PORT " + PORT);
   });
