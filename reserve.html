@@ -77,6 +77,17 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
         
         <script type="text/javascript">
+        $(".submit").on("click", (event) =>{
+            event.preventDefault();
+
+            const newReservation = {
+                name: $("#reserve-name").va().trim(),
+                phoneNumber: $("#reserve-phone").va().trim(),
+                Email: $("#reserve-email").va().trim(),
+                uniqueId: $("#reserve-id").va().trim(),
+            };
+
+        })
 
 
         </script>
