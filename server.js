@@ -46,6 +46,12 @@ app.use(express.json());
     return res.json(wait);
   });
 
+  app.post("/api/table", function(req, res){
+    const newReservation = req.body;
+    table.push(newReservation);
+    res.json(newReservation);
+  });
+
   app.listen(PORT, () => {
     console.log("App listening on PORT " + PORT);
   });
