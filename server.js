@@ -23,3 +23,7 @@ app.listen(PORT, function() {
   app.get("/table", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
   });
+
+  app.get("/reserve", function(req, res) {
+    res.sendFile(path.join(__dirname, "reserve.html"));
+  });
