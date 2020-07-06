@@ -14,6 +14,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <script src="https://code.jquery.com/jquery.js"></script>
   </head>
   <body>
     <div class="container">
@@ -47,12 +48,12 @@
             <div class="card-body">
               <ul id="tableList" class="list-group">
                 <li class="list-group-item mt-4">
-                  <h2>Table #1</h2>
+                  <h2 id="tableNumber">Table #1</h2>
                   <hr />
-                  <h3>ID: 1225</h3>
-                  <h3>Name: Santa Clause</h3>
-                  <h3>Email: bigmanredsuit@gmail.com</h3>
-                  <h3>Phone: 1-800-rent-a-reindeer</h3>
+                  <h3 id="id">ID: 1225</h3>
+                  <h3 id="name">Name: Santa Clause</h3>
+                  <h3 id="email">Email: bigmanredsuit@gmail.com</h3>
+                  <h3 id="phone">Phone: 1-800-rent-a-reindeer</h3>
                 </li>
               </ul>
             </div>
@@ -60,5 +61,18 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      $.get("/api/table", function (data) {
+        console.log(data);
+        if (data) {
+          $("#id").text(data.id);
+          $("#name").text(data.name);
+          $("#email").text(data.email);
+          $("#phone").text(data.phone);
+        } else {
+          $("#name").text("Your table was not found.");
+        }
+      });
+    </script>
   </body>
 </html>
