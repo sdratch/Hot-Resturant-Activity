@@ -46,16 +46,7 @@
               <h4>Current Reservations</h4>
             </div>
             <div class="card-body">
-              <ul id="tableList" class="list-group">
-                <li class="list-group-item mt-4">
-                  <h2 id="tableNumber">Table #1</h2>
-                  <hr />
-                  <h3 id="id">ID: 1225</h3>
-                  <h3 id="name">Name: Santa Clause</h3>
-                  <h3 id="email">Email: bigmanredsuit@gmail.com</h3>
-                  <h3 id="phone">Phone: 1-800-rent-a-reindeer</h3>
-                </li>
-              </ul>
+              <ul id="tableList" class="list-group"></ul>
             </div>
           </div>
         </div>
@@ -64,13 +55,25 @@
     <script type="text/javascript">
       $.get("/api/table", function (data) {
         console.log(data);
-        if (data) {
-          $("#id").text(data.id);
-          $("#name").text(data.name);
-          $("#email").text(data.email);
-          $("#phone").text(data.phone);
-        } else {
-          $("#name").text("Your table was not found.");
+        console.log(data.name);
+
+        for (var i = 0; i < data.length; i++) {
+          // Get a reference to the tableList element and populate it with tables
+          var tableList = $("#tableList");
+
+          // Then display the fields in the HTML (Section Name, Date, URL)
+          var listItem = $("<li class='list-group-item mt-4'>");
+
+          listItem.append(
+            $("<h2>").text("Table #" + (i + 1)),
+            $("<hr>"),
+            $("<h2>").text("ID: " + data[i].id),
+            $("<h2>").text("Name: " + data[i].name),
+            $("<h2>").text("Email: " + data[i].email),
+            $("<h2>").text("Phone: " + data[i].phone)
+          );
+
+          tableList.append(listItem);
         }
       });
     </script>
