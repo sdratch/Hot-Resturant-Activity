@@ -1,16 +1,13 @@
-
 const express = require("express");
 const path = require("path");
-const { table } = require("console");
+//const { table } = require("console");
 
 const app = express();
 const PORT = 3000;
-var PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.listen(PORT, function () {
 const table = [
   {
     name: "bob",
@@ -48,7 +45,21 @@ app.get("/api/table", (req, res) => {
 app.get("/api/wait", (req, res) => {
   return res.json(wait);
 });
-//create new person in table table
+
+//app.post path is going to be whatever they post to  either table or wait or just api
+// insided nested function is where we will do logic and output results
+//req.body to get results
+
+app.post("/reserve", function (req, res) {
+  let newReserve = req.body;
+  if (table.length < 5) {
+    table.push(newReserve);
+    res.json(true);
+  } else {
+    wait.push(newReserve);
+    res.json(false);
+  }
+});
 
 app.listen(PORT, () => {
   console.log("App listening on PORT " + PORT);
