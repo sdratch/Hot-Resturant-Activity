@@ -48,9 +48,7 @@ app.get("/api/wait", (req, res) => {
   return res.json(wait);
 });
 
-app.listen(PORT, () => {
-  console.log("App listening on PORT " + PORT);
-});
+
 //app.post path is going to be whatever they post to  either table or wait or just api
 // insided nested function is where we will do logic and output results
 //req.body to get results
