@@ -23,6 +23,9 @@ const wait = [
     id: 12,
   },
 ];
+
+// Routes
+// =================================================
 // Routes
 // =================================================
 
@@ -44,6 +47,7 @@ app.get("/api/table", (req, res) => {
 app.get("/api/wait", (req, res) => {
   return res.json(wait);
 });
+
 
 //app.post path is going to be whatever they post to  either table or wait or just api
 // insided nested function is where we will do logic and output results
