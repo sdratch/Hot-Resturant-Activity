@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-//const { table } = require("console");
 
 const app = express();
 const PORT = 3000;
@@ -50,7 +49,13 @@ app.get("/api/wait", (req, res) => {
 // insided nested function is where we will do logic and output results
 //req.body to get results
 
-app.post("/reserve", function (req, res) {
+// app.post("/api/table", function(req, res){
+  //   const newReservation = req.body;
+  //   table.push(newReservation);
+  //   res.json(newReservation);
+  // });
+
+app.post("/api/table", function (req, res) {
   let newReserve = req.body;
   if (table.length < 5) {
     table.push(newReserve);
@@ -64,3 +69,9 @@ app.post("/reserve", function (req, res) {
 app.listen(PORT, () => {
   console.log("App listening on PORT " + PORT);
 });
+  
+
+  
+  
+
+
